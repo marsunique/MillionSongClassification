@@ -22,3 +22,5 @@ The question now is which direction can we go?  Possible options:
 
 
 Top priority now: name the band
+
+Also important: Get our tasks onto our kanban board on the "boards" tab
