@@ -18,3 +18,6 @@ The question now is which direction can we go?  Possible options:
 2. Claiisfy the dataset according to album sales, then predict the number of sales 
 3. Classify the dataset according to the album popularity on the top 40 chart, then predict the duration on the top 40
 4. Classify the songs and then write a song of our own, and sing it for the class!
+
+
+Top priority now: name the band
