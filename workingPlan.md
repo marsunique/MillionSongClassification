@@ -7,7 +7,7 @@
 ##Overview
 ###Language(s) we are using 
 
-We will be using Java and Python
+We will be using Java and Python *and tensorflow and...??*
 
 ###Data set we are using
 * http://labrosa.ee.columbia.edu/millionsong/
@@ -44,9 +44,14 @@ Cluster the songs
 
 ###Plan - What Will We Use To Answer Questions
 
+*At what level are we implementing these?  Both Python and Java have libraries that will do any of these for us.  Are we allowed to use those?  Are we implementing from scratch?*
+
+
 ####Preprocessing
 
 We will most likely use Java to parse the .h5 files since it has a built-in functionality to parse the .h5 formats.  We will most likely remove the unstructured data, and export our results as JSON or .csv files.
+
+* The easiest way to do any project is not mixing languages if you don't need to.  We can get away with it if we want because this isn't a real project. Because we will have to pass data between ourselves, we still need to make some formatting standards.  i.e. if we're going to share code it is a good idea to just pick one language.  If we are going to each do our own thing (or each group do its own thing) then we need to agree that the preprocessor always outputs .csv files (or something) in a certain format, and the miners always output .csv files (or something) with a specific format.  That also means we have to agree on what the output of the clusterers/classifiers/etc will be (predicted-actual?).  Otherwise doing postprocessing/visualization will be a nightmare because the results from each group won't have the same information.
 
 + what do we do about data that is incomplete?
 + What do we do about data that is contradictory?
@@ -80,11 +85,10 @@ So I would suggest the following
 - Bayes
 - SVM
 - a decision tree
-- with TensorFlow, other algorithms we learn in class
 
 ####Outlier Detectors (if any)
 
-PCA isn't usually used to detect outliers.  We could probably only do one of these types if we wanted.
+--PCA-- PCA isn't usually used to detect outliers.  We could probably only do one of the following types if we want.
 
 - Statistical
 - Density
@@ -97,3 +101,5 @@ Use data visualization techniques to display the result more interactively
 
 
 ###Division of Labor
+
+First step: Are we breaking it up by task, by level?  Is one person/group writing each of these? Are some people focusing entirely on preprocessing and/or postprocessing, or are those going to be a group effort?
