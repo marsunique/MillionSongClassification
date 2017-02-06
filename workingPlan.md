@@ -103,3 +103,7 @@ Use data visualization techniques to display the result more interactively
 ###Division of Labor
 
 First step: Are we breaking it up by task, by level?  Is one person/group writing each of these? Are some people focusing entirely on preprocessing and/or postprocessing, or are those going to be a group effort?
+
+
+### Did It Work?
+Somewhere, we need to say how we are measuring if it works.  Purely if we are right/wrong?  Number of false positives/false negatives?  For clustering, number of things in the wrong cluster, or are some songs more important than others?
