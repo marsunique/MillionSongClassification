@@ -158,3 +158,5 @@ $RECYCLE.BIN/
 .nfs*
 
 # End of https://www.gitignore.io/api/osx,python,windows,linux
+MillionSongSubset/*
+DUSTIN_VIRTUALENV/*
