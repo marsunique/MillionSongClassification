@@ -52,3 +52,12 @@ Use data visualization techniques to display the result more interactively
 
 
 Division of Labor
+
+
+CSV FILE ITEMS:
+
+| ID            |         TITLE |
+| ------------- | ------------- |
+| String        | String        |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
