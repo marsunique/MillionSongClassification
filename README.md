@@ -104,3 +104,5 @@ Dustin - Created the parser for the .h5 files.  Parsed a subset of 10,000 songs 
 Marc - Uploading and formatting data into a mySQL database for easy use. Will use in conjunction with Dustin's list of top 40 history to classify new songs as top 40 or not.
 
 Yuchen - Worked together with Dustin on providing workable input data. Resolved the possible issue caused by the incompatible encoding setup. Will be looking for practicable solution for clustering problem (algorithms, attributes taken into account to do clustering) and how to interpret the clustering result. Also will be doing research on how to present the result (visualization).
+
+Guanxu - Will implemente Knn classifier to predict the hottness of songs and compare the result come from other teamates' prediction. Will convert nominal attributes(artists, release) into numeric for easy use of classification.
