@@ -75,6 +75,7 @@ Done producing workable data (in .csv file).
 # Things under processing:
 
 Normalize the data.
+
 Building classifier based on appropriate algorithms.
 - 	Linear Regression
 - 	L1 Penalized Linear Regression
@@ -95,4 +96,3 @@ Optional:
 
 ## Progress Report ##
 Andrew - Have implemented Naive Bayes classifier and two outlier detection methods: a Support Vector Machine and a Random Forest.  Currently looking for outliers and trying to interpret the results of the detection methods.  For NB, next step is to see if some variables are easier to predict, and once we have Top 40 dataset, seeing if NB will predict song success.
->>>>>>> refs/remotes/origin/master
