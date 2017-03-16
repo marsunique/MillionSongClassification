@@ -88,6 +88,9 @@ Loading the data into mySQL.
 Generate hottness label in trainning data by using additional database (Billboard?).
 Predict hottness of a song.
 
+Optional: 
+(1) Sentiment analysis based lyrics. 
+(2) Explore themes and meanings of songs and incorporate these features into the dataset.
 
 
 ## Progress Report ##
