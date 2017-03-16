@@ -76,9 +76,9 @@ Done producing workable data (in .csv file).
 
 Normalize the data.
 Building classifier based on appropriate algorithms.
-(1) Linear Regression
-(2) L1 Penalized Linear Regression
-(3) K-Nearest Neighbors Regression
+- 	Linear Regression
+- 	L1 Penalized Linear Regression
+- 	K-Nearest Neighbors Regression
 Compare the performance between different algorithms.
 
 Loading the data into mySQL.
@@ -89,8 +89,8 @@ Generate hottness label in trainning data by using additional database (Billboar
 Predict hottness of a song.
 
 Optional: 
-(1) Sentiment analysis based lyrics. 
-(2) Explore themes and meanings of songs and incorporate these features into the dataset.
+- 	Sentiment analysis based lyrics. 
+- 	Explore themes and meanings of songs and incorporate these features into the dataset.
 
 
 ## Progress Report ##
