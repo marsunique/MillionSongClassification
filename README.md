@@ -62,3 +62,26 @@ Division of Labor
 | TRMMMYQ128F932D901  | Silent Night  | Faster Pussy cat | Monster Ballads X-Mas | 2003   | 10  | 0.777 | 4 | 0.94 | 0 | 0.688 | 2.049 | 236.635 | 0.0 | 252.05506 | 0.0 | 0.5428987432910862| 87.002 | -4.829 |
 | TRMMMKD128F425225D  | Tanssi vaan   | Karkkiautomaatti |  Karkuteill\u00e4     | 1995   | 9   | 0.808 | 1 | 0.0 | 1 | 0.355 | 0.258 | 148.66 | 0.0 | 156.55138 | 0.0 | 0.2998774882739778| 150.778 | -10.555|
 
+# Things have been done:
+
+Parsing h5 file.
+
+Preliminary selection of attributes (could be refined in the future, maybe more attributes will be incorporated).
+
+Fix encoding problem. Transferred all characters to utf-8 format to avoid unexpected errors.
+
+Done producing workable data (in .csv file).
+
+# Things under processing:
+
+Normalize the data.
+
+Find appropriate algorithms to do classification. Compare the performance between different algorithms.
+
+# Things to be done:
+
+Generate hottness label in trainning data by using additional database (Billboard?).
+
+Build classificatoin model.
+
+Predict hottness of a song.
