@@ -102,3 +102,5 @@ Andrew - Have implemented Naive Bayes classifier and two outlier detection metho
 Dustin - Created the parser for the .h5 files.  Parsed a subset of 10,000 songs into JSON format to be read by Yuchen's filters.  Currently creating a master history list of songs that reached the top 40 charts to be used as a starting point for our labeled data set.  Upon completion, we will extract the song data from the SQL database of all the songs that Marc will create.
 
 Marc - Uploading and formatting data into a mySQL database for easy use. Will use in conjunction with Dustin's list of top 40 history to classify new songs as top 40 or not.
+
+Yuchen - Worked together with Dustin on providing workable input data. Resolved the possible issue caused by the incompatible encoding setup. Will be looking for practicable solution for clustering problem (algorithms, attributes taken into account to do clustering) and how to interpret the clustering result. Also will be doing research on how to present the result (visualization).
