@@ -78,6 +78,8 @@ Normalize the data.
 
 Find appropriate algorithms to do classification. Compare the performance between different algorithms.
 
+Loading the data into mySQL.
+
 # Things to be done:
 
 Generate hottness label in trainning data by using additional database (Billboard?).
