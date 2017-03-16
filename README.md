@@ -75,13 +75,16 @@ Done producing workable data (in .csv file).
 # Things under processing:
 
 Normalize the data.
-
-Find appropriate algorithms to do classification. Compare the performance between different algorithms.
+Building classifier based on appropriate algorithms.
+(1) Linear Regression
+(2) L1 Penalized Linear Regression
+(3) K-Nearest Neighbors Regression
+Compare the performance between different algorithms.
 
 # Things to be done:
 
 Generate hottness label in trainning data by using additional database (Billboard?).
-
-Build classificatoin model.
-
 Predict hottness of a song.
+Optional: 
+(1) Sentiment analysis based lyrics. 
+(2) Explore themes and meanings of songs and incorporate these features into the dataset.
