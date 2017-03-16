@@ -85,3 +85,7 @@ Generate hottness label in trainning data by using additional database (Billboar
 Build classificatoin model.
 
 Predict hottness of a song.
+
+
+## Progress Report ##
+Andrew - Have implemented Naive Bayes classifier and two outlier detection methods: a Support Vector Machine and a Random Forest.  Currently looking for outliers and trying to interpret the results of the detection methods.  For NB, next step is to see if some variables are easier to predict, and once we have Top 40 dataset, seeing if NB will predict song success.
