@@ -84,6 +84,8 @@ Compare the performance between different algorithms.
 
 Loading the data into mySQL.
 
+Creating a labeled data set.
+
 # Things to be done:
 
 Generate hottness label in trainning data by using additional database (Billboard?).
