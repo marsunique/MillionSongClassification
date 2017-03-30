@@ -37,23 +37,22 @@ class UnicodeWriter(object):
 
 
 class JsonToCSV(object):
-    def __init__(self, filename):
-        self.input_file = filename
+    def __init__(self, music_path, topsong_path):
+        self.input_file = music_path
         self.header = [
             'track_id', 'title', 'artist_name', 'release', 'year',
             'key', 'key_confidence', 'time_signature', 'time_signature_confidence', 'mode',
             'mode_confidence', 'end_of_fade_in', 'start_of_fade_out', 'energy', 'duration',
-            'danceability', 'song_hottness', 'tempo', 'loudness'
+            'danceability', 'song_hottness', 'tempo', 'loudness', 'top100'
         ]
-
-    def stringIt(self, s):
-        # print s
-        # print type(s)
-        if type(s) is unicode:
-            return s.encode('utf-8')
-        else:
-            return str(s).encode('utf-8')
-
+        topsong_file = open(topsong_path)
+        try:
+            self.topsong = topsong_file.readlines()
+        except BaseException, e:
+            print e
+        finally:
+            topsong_file.close()
+    
     def readInput(self):
         json_file = open(self.input_file)
         try:
@@ -67,25 +66,50 @@ class JsonToCSV(object):
         finally:
             json_file.close()
 
+    def stringIt(self, s):
+        # print s
+        # print type(s)
+        if type(s) is unicode:
+            return s.encode('utf-8')
+        else:
+            return str(s).encode('utf-8')
+
+    def checkTop100(self, arg_title, arg_artist):
+        for line in self.topsong:
+            line = line.strip()
+            title, artist = line.split('|~|')
+            if title == arg_title and artist == arg_artist:
+                return 'yes'.encode('utf-8')
+        return 'no'.encode('utf-8')
+
     def transToCSV(self, json_data):
         result_list = []
+        count_yes = 0
+        count_no = 0
         try:
             for music in json_data:
                 row = []
-                for field in self.header:
+                for field in self.header[:-1]:
                     # print music[field]
                     value = self.stringIt(music[field])
                     # print type(value)
                     row.append(value)
+                row.append(self.checkTop100(row[1], row[2]))
                 row = tuple(row)
                 # print row
+                if row[-1] == 'yes':
+                    count_yes += 1
+                else:
+                    count_no += 1
                 result_list.append(row)
+            print 'yes:', count_yes
+            print 'no:', count_no
             return result_list
         except UnicodeDecodeError:
             print 'Encoding Error'
 
     def writeOutput(self, res):
-        output_file = open('tenksongs.csv', 'wb')
+        output_file = open('tenksongs(labeled).csv', 'wb')
         try:
             writer = csv.writer(output_file)
             writer.writerow(self.header)
@@ -104,5 +128,5 @@ class JsonToCSV(object):
 
 
 if __name__ == '__main__':
-    test = JsonToCSV('tenksongs.txt')
+    test = JsonToCSV('tenksongs.txt', 'topSongs.txt')
     test.run()
