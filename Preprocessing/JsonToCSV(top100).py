@@ -117,6 +117,8 @@ class JsonToCSV(object):
         except BaseException, e:
             print "Error when writing the 'tenksong.csv'"
             print e
+        finally:
+            output_file.close()
 
     def run(self):
         json_data = self.readInput()
