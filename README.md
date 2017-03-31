@@ -9,7 +9,10 @@ Language(s) we are using
 We will be using Java and Python
 Data set we are using
 * http://labrosa.ee.columbia.edu/millionsong/
-* http://labrosa.ee.columbia.edu/millionsong/pages/field-list 
+* http://labrosa.ee.columbia.edu/millionsong/pages/field-list
+* http://cs229.stanford.edu/proj2014/Angela%20Xue,%20Nick%20Dupoux,%20Predicting%20the%20Commercial%20Success%20of%20Songs%20Based%20on%20Lyrics%20and%20Other%20Metrics.pdf
+* https://www.cs.purdue.edu/homes/moore269/docs/music.pdf
+* https://prezi.com/emacbgyfpexz/music-hotness-prediction/
 Goal
 Our goal is to classify songs with the focus of predicting if a song will make it to the top 40
 
@@ -105,6 +108,7 @@ Marc - Uploading and formatting data into a mySQL database for easy use. Will us
 
 Yuchen - Worked together with Dustin on providing workable input data. Resolved the possible issue caused by the incompatible encoding setup. Will be looking for practicable solution for clustering problem (algorithms, attributes taken into account to do clustering) and how to interpret the clustering result. Also will be doing research on how to present the result (visualization).
 
-Guanxu - Will implemente Knn classifier to predict the hottness of songs and compare the result come from other teamates' prediction. Will convert nominal attributes(artists, release) into numeric for easy use of classification.
+Guanxu - Will implemente Gaussian discriminant model(GDA) classifier to predict the hottness of songs and compare the result come from other teamates' prediction. Will convert nominal attributes(artists, release) into numeric for easy use of classification.
+http://ai2-s2-pdfs.s3.amazonaws.com/4193/5a4701ff429b71fb94f77840ffb1258ce894.pdf
 
 Fuxing - Will Generate hottness label in trainning data by using additional database (Billboard).
