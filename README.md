@@ -13,6 +13,7 @@ Data set we are using
 * http://cs229.stanford.edu/proj2014/Angela%20Xue,%20Nick%20Dupoux,%20Predicting%20the%20Commercial%20Success%20of%20Songs%20Based%20on%20Lyrics%20and%20Other%20Metrics.pdf
 * https://www.cs.purdue.edu/homes/moore269/docs/music.pdf
 * https://prezi.com/emacbgyfpexz/music-hotness-prediction/
+
 Goal
 Our goal is to classify songs with the focus of predicting if a song will make it to the top 40
 
