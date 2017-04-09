@@ -1,9 +1,12 @@
 import pandas as pd
 from sklearn import tree
 
+header = pd.read_csv('tenksongs(labeled).csv', nrows = 1).columns
+print header
+data = pd.read_csv('tenksongs(labeled).csv', skiprows = 0, header = None)
+print data[1][1]
 
-data = pd.read_csv('tenksongs(labeled).csv', header = None)
-train_sample = []
+'''train_sample = []
 train_labels = []
 test_sample = []
 yes_sample = []
@@ -18,7 +21,7 @@ for i in range (0, len(data)):
 		yes_sample.append(yes_ele)
 		continue
 	train_count = train_count + 1
-	if train_count > 100:
+	if train_count > 10000:
 		continue
 	for j in range(0, 13):
 		train_ele.append(data[j][i])
@@ -32,7 +35,7 @@ for i in range (20, 25):
 
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(train_sample, train_labels)
-print clf.predict(test_sample)
+print clf.predict(test_sample)'''
 
 '''X = [[0, 0], [1, 1]]
 Y = ['yes', 'no']
