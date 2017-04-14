@@ -1,3 +1,10 @@
+from sklearn.svm import SVC
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import KFold
+from sklearn.linear_model import LassoCV
+from random import shuffle
+
 def classificationBig(fpath, d, splits=5):
     """
     Basic classification with 5-fold cross-validation
