@@ -153,11 +153,10 @@ for item in bigArray[1:]:
         key = '10-120'
         durationDictionary.setdefault(key, 0)
         durationDictionary[key] = durationDictionary[key] + 1
-
-
-
-
-
+    else:
+        key = '10-'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
 
 
 
@@ -288,28 +287,17 @@ for key in fadeInDictionary:
 for key in fadeOutDictionary:
     print key + "    " + str(fadeOutDictionary[key])
 
-
-'''
 # DURATION
 print max(durationArray)
 print min(durationArray)
 for key in durationDictionary:
     print key + "    " + str(durationDictionary[key])
 
-
-
-
-
-
-
-
-
-
 # START OF FADE OUT
 for key in danceabilityDictionary:
     print key + "    " + str(danceabilityDictionary[key])
 
-'''
+
 #HOTNESS
 for key in hotnessDictionary:
     print key + "    " + str(hotnessDictionary[key])
