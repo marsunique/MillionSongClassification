@@ -2,6 +2,7 @@ import re
 
 bigArray = []
 
+durationArray = []
 
 artistNameArray = {}
 keyDictionary = {}
@@ -10,6 +11,7 @@ modeDictionary = {}
 fadeInDictionary = {}
 fadeOutDictionary = {}
 energyDictionary = {}
+durationDictionary = {}
 
 danceabilityDictionary = {}
 hotnessDictionary = {}
@@ -132,25 +134,25 @@ for item in bigArray[1:]:
         energyDictionary.setdefault(key, 0)
         energyDictionary[key] = energyDictionary[key] + 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #DURATION
+    duration = float(item[14])
+    durationArray.append(duration)
+    if duration > 480:
+        key = '480+'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+    elif duration > 270:
+        key = '270-480'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+    elif duration > 120:
+        key = '120-270'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+    elif duration > 10:
+        key = '10-120'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
 
 
 
@@ -189,7 +191,6 @@ for item in bigArray[1:]:
     #HOTNESS
     hotness = float(item[16])
     if hotness > .75:
-        key = '.75-1.00'
         hotnessDictionary.setdefault(key, 0)
         hotnessDictionary[key] = hotnessDictionary[key] + 1
     elif hotness > .50:
@@ -197,7 +198,6 @@ for item in bigArray[1:]:
         hotnessDictionary.setdefault(key, 0)
         hotnessDictionary[key] = hotnessDictionary[key] + 1
     elif hotness > .25:
-        key = '.25-.50'
         hotnessDictionary.setdefault(key, 0)
         hotnessDictionary[key] = hotnessDictionary[key] + 1
     else:
@@ -290,6 +290,11 @@ for key in fadeOutDictionary:
 
 
 '''
+# DURATION
+print max(durationArray)
+print min(durationArray)
+for key in durationDictionary:
+    print key + "    " + str(durationDictionary[key])
 
 
 
