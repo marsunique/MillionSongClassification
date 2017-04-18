@@ -1,5 +1,87 @@
 import re
 
+
+class NaiveBayes(object):
+    def __init__(self):
+        self.train_data_path = 'train_sample.csv'
+        self.train_data_yes = []
+        self.train_data_no = []
+        # number of rows
+        self.total_row = 0
+        self.row_number_yes = 0
+        self.row_number_no = 0
+        # label probability
+        self.prob_yes = 0
+        self.prob_no = 0
+        # attributes conditional probability
+        # ARTIST NAME
+        self.prob_artistName_yes = {}
+        self.prob_artistName_no = {}
+        # KEY
+        self.prob_key_yes = {}
+        self.prob_key_no = {}
+        # TIME SIGNATURE
+        self.prob_timeSignature_yes = {}
+        self.prob_timeSignature_no = {}
+        # MODE
+        self.prob_mode_yes = {}
+        self.prob_mode_no = {}
+        # FADE IN
+        self.prob_fadeIn_yes = {}
+        self.prob_fadeIn_no = {}
+        # FADE OUT
+        self.prob_fadeOut_yes = {}
+        self.prob_fadeOut_no = {}
+        # ENERGY
+        self.prob_energy_yes = {}
+        self.prob_energy_no = {}
+        # DURATION
+        self.prob_duration_yes = {}
+        self.prob_duration_no = {}
+        # DANCEABILITY
+        self.prob_danceability_yes = {}
+        self.prob_danceability_no = {}
+        # HOTNESS
+        self.prob_hotness_yes = {}
+        self.prob_hotness_no = {}
+        # TEMPO
+        self.prob_tempo_yes = {}
+        self.prob_tempo_no = {}
+        # LOUDNESS
+        self.prob_loudness_yes = {}
+        self.prob_loudness_no = {}
+
+    def readData(self):
+        with open(self.train_data_path, 'r+') as openFile:
+            count = 0
+            for line in openFile:
+                line = line.strip().split(",")
+                count += 1
+                if "yes" in line[19]:
+                    self.train_data_yes.append(line)
+                else:
+                    self.train_data_no.append(line)
+        openFile.close()
+        self.train_data_no = self.train_data_no[1:]
+        self.row_number_yes = len(self.train_data_yes)
+        self.row_number_no = len(self.train_data_no)
+        self.total_row = self.row_number_yes + self.row_number_no
+        self.prob_yes = float(self.row_number_yes) / float(self.total_row)
+        self.prob_no = float(self.row_number_no) / float(self.total_row)
+        print 'Total number of data:', self.total_row
+        print 'Number of YES:', self.row_number_yes
+        print 'Number of NO:', self.row_number_no
+        print 'P(yes):', self.prob_yes
+        print 'P(no);', self.prob_no
+
+
+if __name__ == '__main__':
+    nb_model = NaiveBayes()
+    nb_model.readData()
+
+
+'''
+
 unsuccessfulArray = []
 successfulArray = []
 
@@ -275,7 +357,7 @@ for item in successfulArray:
         key = 'no'
         labelDictionary.setdefault(key, 0)
         labelDictionary[key] = labelDictionary[key] + 1
-
+'''
 
 
 '''
@@ -326,12 +408,12 @@ for key in tempoDictionary:
 #LOUDNESS
 for key in loudnessDictionary:
     print key + "    " + str(loudnessDictionary[key])
-'''
+
 
 #LABEL
 for key in labelDictionary:
     print key + "    " + str(labelDictionary[key])
-
+'''
 
 
 
