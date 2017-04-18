@@ -2,6 +2,7 @@ import re
 
 bigArray = []
 energyArray = []
+durationArray = []
 
 artistNameArray = {}
 keyDictionary = {}
@@ -10,6 +11,7 @@ modeDictionary = {}
 fadeInDictionary = {}
 fadeOutDictionary = {}
 energyDictionary = {}
+durationDictionary = {}
 
 
 with open("train_sample.csv", "r+") as openFile:
@@ -129,29 +131,33 @@ for item in bigArray[1:]:
         energyDictionary.setdefault(key, 0)
         energyDictionary[key] = energyDictionary[key] + 1
 
-    #ENERGY
-    energy = float(item[13])
-    energyArray.append(energy)
-    if energy > .75:
-        key = '.75-1.00'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
-elif energy > .50:
-    key = '.50-.75'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
-    elif energy > .25:
-        key = '.25-.50'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
-elif energy > .01:
-    key = '0.0-0.01'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
+    #DURATION
+    duration = float(item[14])
+    durationArray.append(duration)
+    if duration > 480:
+        key = '480+'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+    elif duration > 270:
+        key = '270-480'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+    elif duration > 120:
+        key = '120-270'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+    elif duration > 10:
+        key = '10-120'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
     else:
-        key = '0.0-.01'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
+        key = '10-'
+        durationDictionary.setdefault(key, 0)
+        durationDictionary[key] = durationDictionary[key] + 1
+
+
+    
+
 
 
 '''
@@ -179,10 +185,16 @@ for key in fadeInDictionary:
 # START OF FADE OUT
 for key in fadeOutDictionary:
     print key + "    " + str(fadeOutDictionary[key])
-'''
+
 # START OF FADE OUT
 for key in energyDictionary:
     print key + "    " + str(energyDictionary[key])
+'''
+# DURATION
+print max(durationArray)
+print min(durationArray)
+for key in durationDictionary:
+    print key + "    " + str(durationDictionary[key])
 
 
 #for item in energyArray:
