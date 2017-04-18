@@ -1,7 +1,7 @@
 import re
 
 bigArray = []
-energyArray = []
+
 
 artistNameArray = {}
 keyDictionary = {}
@@ -11,6 +11,11 @@ fadeInDictionary = {}
 fadeOutDictionary = {}
 energyDictionary = {}
 
+danceabilityDictionary = {}
+hotnessDictionary = {}
+tempoDictionary = {}
+loudnessDictionary = {}
+
 
 with open("train_sample.csv", "r+") as openFile:
     count = 0
@@ -19,12 +24,11 @@ with open("train_sample.csv", "r+") as openFile:
         if count != 0:
             bigArray.append(newLine)
         count = count + 1
-    print "big array has " + str(len(bigArray))
+    #print "big array has " + str(len(bigArray))
 
 #print bigArray[1]
 #print bigArray[1][5]
 #print bigArray[1][19]
-
 
 
 for item in bigArray[1:]:
@@ -107,7 +111,6 @@ for item in bigArray[1:]:
 
     #ENERGY
     energy = float(item[13])
-    energyArray.append(energy)
     if energy > .75:
         key = '.75-1.00'
         energyDictionary.setdefault(key, 0)
@@ -129,29 +132,134 @@ for item in bigArray[1:]:
         energyDictionary.setdefault(key, 0)
         energyDictionary[key] = energyDictionary[key] + 1
 
-    #ENERGY
-    energy = float(item[13])
-    energyArray.append(energy)
-    if energy > .75:
-        key = '.75-1.00'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
-elif energy > .50:
-    key = '.50-.75'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
-    elif energy > .25:
-        key = '.25-.50'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
-elif energy > .01:
-    key = '0.0-0.01'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #DANCEABILITY
+    danceability = float(item[15])
+    if danceability > .20:
+        key = '.20-1.0'
+        danceabilityDictionary.setdefault(key, 0)
+        danceabilityDictionary[key] = danceabilityDictionary[key] + 1
+    elif danceability > .15:
+        key = '.15-.20'
+        danceabilityDictionary.setdefault(key, 0)
+        danceabilityDictionary[key] = danceabilityDictionary[key] + 1
+    elif danceability > .10:
+        key = '.10-.15'
+        danceabilityDictionary.setdefault(key, 0)
+        danceabilityDictionary[key] = danceabilityDictionary[key] + 1
+    elif danceability > .05:
+        key = '.05-.10'
+        danceabilityDictionary.setdefault(key, 0)
+        danceabilityDictionary[key] = danceabilityDictionary[key] + 1
+    elif danceability > 0:
+        key = '0-.05'
+        danceabilityDictionary.setdefault(key, 0)
+        danceabilityDictionary[key] = danceabilityDictionary[key] + 1
     else:
-        key = '0.0-.01'
-        energyDictionary.setdefault(key, 0)
-        energyDictionary[key] = energyDictionary[key] + 1
+        key = '0'
+        danceabilityDictionary.setdefault(key, 0)
+        danceabilityDictionary[key] = danceabilityDictionary[key] + 1
+
+    #HOTNESS
+    hotness = float(item[16])
+    if hotness > .75:
+        key = '.75-1.00'
+        hotnessDictionary.setdefault(key, 0)
+        hotnessDictionary[key] = hotnessDictionary[key] + 1
+    elif hotness > .50:
+        key = '.50-.75'
+        hotnessDictionary.setdefault(key, 0)
+        hotnessDictionary[key] = hotnessDictionary[key] + 1
+    elif hotness > .25:
+        key = '.25-.50'
+        hotnessDictionary.setdefault(key, 0)
+        hotnessDictionary[key] = hotnessDictionary[key] + 1
+    else:
+        key = '0.0-.25'
+        hotnessDictionary.setdefault(key, 0)
+        hotnessDictionary[key] = hotnessDictionary[key] + 1
+
+
+    #TEMPO
+    tempo = float(item[17])
+    if tempo > 200:
+        key = '> 200'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+    elif tempo > 169:
+        key = '170-200'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+    elif tempo > 139:
+        key = '140-170'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+    elif tempo > 119:
+        key = '120-140'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+    elif tempo > 99:
+        key = '100-120'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+    elif tempo > 79:
+        key = '80-10'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+    else:
+        key = '0-80'
+        tempoDictionary.setdefault(key, 0)
+        tempoDictionary[key] = tempoDictionary[key] + 1
+
+
+    #LOUDNESS
+    loudness = float(item[18])
+    if loudness > -5:
+        key = '0-(-5)'
+        loudnessDictionary.setdefault(key, 0)
+        loudnessDictionary[key] = loudnessDictionary[key] + 1
+    elif loudness > -10:
+        key = '(-5)-(-10)'
+        loudnessDictionary.setdefault(key, 0)
+        loudnessDictionary[key] = loudnessDictionary[key] + 1
+    elif loudness > -50:
+        key = '(-10)-(-50)'
+        loudnessDictionary.setdefault(key, 0)
+        loudnessDictionary[key] = loudnessDictionary[key] + 1
+    elif loudness > -100:
+        key = '(-50)-(-100)'
+        loudnessDictionary.setdefault(key, 0)
+        loudnessDictionary[key] = loudnessDictionary[key] + 1
+    else:
+        key = 'unknown'
+        loudnessDictionary.setdefault(key, 0)
+        loudnessDictionary[key] = loudnessDictionary[key] + 1
 
 
 '''
@@ -179,17 +287,36 @@ for key in fadeInDictionary:
 # START OF FADE OUT
 for key in fadeOutDictionary:
     print key + "    " + str(fadeOutDictionary[key])
+
+
 '''
+
+
+
+
+
+
+
+
+
+
 # START OF FADE OUT
-for key in energyDictionary:
-    print key + "    " + str(energyDictionary[key])
+for key in danceabilityDictionary:
+    print key + "    " + str(danceabilityDictionary[key])
 
+'''
+#HOTNESS
+for key in hotnessDictionary:
+    print key + "    " + str(hotnessDictionary[key])
 
-#for item in energyArray:
-#    print item
+# TEMPO
+for key in tempoDictionary:
+    print key + "    " + str(tempoDictionary[key])
 
-#print "fia" + str(max(fadeInArray))
-
+#LOUDNESS
+for key in loudnessDictionary:
+    print key + "    " + str(loudnessDictionary[key])
+'''
 
 
 
