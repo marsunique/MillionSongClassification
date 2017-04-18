@@ -1,6 +1,7 @@
 import re
 
-bigArray = []
+unsuccessfulArray = []
+successfulArray = []
 
 durationArray = []
 
@@ -17,6 +18,7 @@ danceabilityDictionary = {}
 hotnessDictionary = {}
 tempoDictionary = {}
 loudnessDictionary = {}
+labelDictionary = {}
 
 
 with open("train_sample.csv", "r+") as openFile:
@@ -24,16 +26,19 @@ with open("train_sample.csv", "r+") as openFile:
     for line in openFile:
         newLine = line.split(",")
         if count != 0:
-            bigArray.append(newLine)
+            if "yes" in newLine[19]:
+                successfulArray.append(newLine)
+            else:
+                unsuccessfulArray.append(newLine)
         count = count + 1
-    #print "big array has " + str(len(bigArray))
+#print "big array has " + str(len(bigArray))
 
 #print bigArray[1]
 #print bigArray[1][5]
 #print bigArray[1][19]
 
 
-for item in bigArray[1:]:
+for item in successfulArray:
     # FIND THE NUMBER OF TIMES AN ARTIST SHOWS UP
     if "yes" in item[19]:
         key = item[2]
@@ -260,6 +265,18 @@ for item in bigArray[1:]:
         loudnessDictionary.setdefault(key, 0)
         loudnessDictionary[key] = loudnessDictionary[key] + 1
 
+    #LABEL
+    label = item[19]
+    if "yes" in label:
+        key = 'yes'
+        labelDictionary.setdefault(key, 0)
+        labelDictionary[key] = labelDictionary[key] + 1
+    else:
+        key = 'no'
+        labelDictionary.setdefault(key, 0)
+        labelDictionary[key] = labelDictionary[key] + 1
+
+
 
 '''
 print len(artistNameArray)
@@ -311,7 +328,9 @@ for key in loudnessDictionary:
     print key + "    " + str(loudnessDictionary[key])
 '''
 
-
+#LABEL
+for key in labelDictionary:
+    print key + "    " + str(labelDictionary[key])
 
 
 
