@@ -38,7 +38,7 @@ features = list(df2.columns[:14])
 y = df2["Target"]
 X = df2[features]
 dt = DecisionTreeClassifier(min_samples_split=20, random_state=99)
-#dt = DecisionTreeClassifier()
+
 dt.fit(X, y)
 
 prediction = dt.predict(df_test_data)

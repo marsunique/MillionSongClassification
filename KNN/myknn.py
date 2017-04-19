@@ -1,5 +1,3 @@
-from sklearn.datasets import load_iris
-from sklearn import cross_validation
 from sklearn.metrics import classification_report, accuracy_score
 from operator import itemgetter
 import numpy as np
@@ -61,19 +59,39 @@ def main():
 
     print("Finish loading data")
  
-    predictions = []
+    prediction = []
  
     k = 5
+
  
     for x in range(len(test_data)):
             print 'Classifying test instance number ' + str(x) + ":",
-            res = myKNN(trainSet=train, testIns=test[x][0], k=5)
-            predictions.append(res)
+            res = myKNN(train, test[x][0], 5)
+            prediction.append(res)
             print 'Predicted label=' + str(res) + ', Actual label=' + str(test[x][1])
- 
-    print '\nThe overall accuracy of the model is: ' + str(accuracy_score(test_label, predictions)) + "\n"
-    report = classification_report(test_label, predictions, target_names = iris.target_names)
-    print 'A detailed classification report: \n\n' + report
+
+
+    trueTestLabel = test_label
+    testNum = len(trueTestLabel)
+    countMatch = 0.0
+    countYes = 0.0
+    totalYes = 0.0
+
+    for i in range(0, testNum):    
+        if trueTestLabel[i] == 1:
+            totalYes += 1
+        if trueTestLabel[i] == prediction[i] :
+            countMatch += 1
+            if prediction[i] == 1:
+                countYes += 1
+
+    print("* Total match = ", countMatch)
+    print("* Total yes = ", totalYes)
+    print("* Total count yes = ", countYes)
+
+    print("* Total Accuracy = ", countMatch/testNum)
+    print("* Yes Accuracy = ", countYes/totalYes)
+
  
 if __name__ == "__main__":
     main()
