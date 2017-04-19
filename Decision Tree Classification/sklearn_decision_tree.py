@@ -1,3 +1,5 @@
+#Auther: Guanxu Yu
+#At NC State University
 from __future__ import print_function
 
 import os
@@ -7,31 +9,16 @@ import pandas as pd
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
-def get_iris_data():
-    """Get the iris data, from local csv or pandas repo."""
-    if os.path.exists("iris.csv"):
-        print("-- iris.csv found locally")
-        df = pd.read_csv("iris.csv", index_col=0)
-    else:
-        print("-- trying to download from github")
-        fn = "https://raw.githubusercontent.com/pydata/pandas/" + \
-             "master/pandas/tests/data/iris.csv"
-        try:
-            df = pd.read_csv(fn)
-        except:
-            exit("-- Unable to download iris.csv")
-
-        with open("iris.csv", 'w') as f:
-            print("-- writing to local iris.csv file")
-            df.to_csv(f)
-
+def get_train_data():
+    df = pd.read_csv("train_sample.csv", index_col=0)
     return df
-df = get_iris_data()
 
+df_train = get_train_data()
+def get_test_data():
+	df = pd.read_csv("test_sample.csv", index_col=0)
+	return df
 
-print("* df.head()", df.head(), sep="\n", end="\n\n")
-print("* df.tail()", df.tail(), sep="\n", end="\n\n")
-print("* iris types:", df["Name"].unique(), sep="\n")
+df_test = get_test_data()
 
 def encode_target(df, target_column):
     """Add column to df with integers for the target.
@@ -54,17 +41,17 @@ def encode_target(df, target_column):
 
     return (df_mod, targets)
 
-df2, targets = encode_target(df, "Name")
-print("* df2.head()", df2[["Target", "Name"]].head(), sep="\n", end="\n\n")
-print("* df2.tail()", df2[["Target", "Name"]].tail(), sep="\n", end="\n\n")
-print("* targets", targets, sep="\n", end="\n\n")
+dfTest2, targetTest = encode_target(df_test, "top100")
+df_test_data = df_test[list(dfTest2.columns[:14])]
+actualTestLabel = dfTest2["Target"]
 
-features = list(df2.columns[:4])
-print("* features:", features, sep="\n")
+df2, targets = encode_target(df_train, "top100")
+features = list(df2.columns[:14])
 
 y = df2["Target"]
 X = df2[features]
 dt = DecisionTreeClassifier(min_samples_split=20, random_state=99)
+#dt = DecisionTreeClassifier()
 dt.fit(X, y)
 
 def visualize_tree(tree, feature_names):
@@ -86,5 +73,37 @@ def visualize_tree(tree, feature_names):
         exit("Could not run dot, ie graphviz, to "
              "produce visualization")
 visualize_tree(dt, features)
+
+prediction = dt.predict(df_test_data)
+
+testNum = len(actualTestLabel)
+
+countMatch = 0.0
+countYes = 0.0
+totalYes = 0.0
+
+trueTestLabel = []
+for i in range(0, testNum):
+	if actualTestLabel[i] == 0:
+		trueTestLabel.append(1)
+	else:
+		trueTestLabel.append(0)
+
+for i in range(0, testNum):    
+	if trueTestLabel[i] == 1:
+		totalYes += 1
+	if trueTestLabel[i] == prediction[i] :
+		countMatch += 1
+		if prediction[i] == 1:
+			countYes += 1
+
+print("* Total match = ", countMatch, sep="\n", end="\n\n")
+print("* Total yes = ", totalYes, sep="\n", end="\n\n")
+print("* Total count yes = ", countYes, sep="\n", end="\n\n")
+
+print("* Total Accuracy = ", countMatch/testNum, sep="\n", end="\n\n")
+print("* Yes Accuracy = ", countYes/totalYes, sep="\n", end="\n\n")
+
+
 
 
