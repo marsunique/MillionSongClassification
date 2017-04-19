@@ -947,11 +947,13 @@ class Predict(object):
                 
                 original_label = line[19]
                 if p_x_yes >= p_x_no:
+                    self.result_label.append('yes')
                     if original_label == 'yes':
                         self.yes_yes_count += 1
                     else:
                         self.no_yes_count += 1
                 else:
+                    self.result_label.append('no')
                     if original_label == 'yes':
                         self.yes_no_count += 1
                     else:
