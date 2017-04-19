@@ -21,19 +21,6 @@ def get_test_data():
 df_test = get_test_data()
 
 def encode_target(df, target_column):
-    """Add column to df with integers for the target.
-
-    Args
-    ----
-    df -- pandas DataFrame.
-    target_column -- column to map to int, producing
-                     new Target column.
-
-    Returns
-    -------
-    df_mod -- modified DataFrame.
-    targets -- list of target names.
-    """
     df_mod = df.copy()
     targets = df_mod[target_column].unique()
     map_to_int = {name: n for n, name in enumerate(targets)}
@@ -53,26 +40,6 @@ X = df2[features]
 dt = DecisionTreeClassifier(min_samples_split=20, random_state=99)
 #dt = DecisionTreeClassifier()
 dt.fit(X, y)
-
-def visualize_tree(tree, feature_names):
-    """Create tree png using graphviz.
-
-    Args
-    ----
-    tree -- scikit-learn DecsisionTree.
-    feature_names -- list of feature names.
-    """
-    with open("dt.dot", 'w') as f:
-        export_graphviz(tree, out_file=f,
-                        feature_names=feature_names)
-
-    command = ["dot", "-Tpng", "dt.dot", "-o", "dt.png"]
-    try:
-        subprocess.check_call(command)
-    except:
-        exit("Could not run dot, ie graphviz, to "
-             "produce visualization")
-visualize_tree(dt, features)
 
 prediction = dt.predict(df_test_data)
 
