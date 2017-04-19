@@ -1,8 +1,6 @@
-from sklearn.metrics import classification_report, accuracy_score
 from operator import itemgetter
 import numpy as np
 import math
-from collections import Counter
 import pandas as pd
 import numpy
 from numpy import genfromtxt
@@ -27,25 +25,41 @@ def load_data(fileName):
     return my_data
  
 def myKNN(trainSet, testIns, k):
-    distances = [euclidean_distance(trainIns, testIns) for trainIns in trainSet]
-    # index 1 is the calculated distance between trainIns and testIns
-    sorted_distances = sorted(distances, key=itemgetter(1))
-    # extract only training instances
-    sorted_training_instances = [t[0] for t in sorted_distances]
-    # select first k elements
-    neighbours = sorted_training_instances[:k]
+    distance = []
+    for train_data in trainSet:
+        distance.append(euclidean_distance(train_data, testIns))
+
+    sorted_distances = sorted(distance, key=itemgetter(1))
+    
+    sorted_train_data = []
+    for t in sorted_distances:
+        sorted_train_data.append(t[0])
+    neighbours = sorted_train_data[:k]
     #majority vote
-    classes = [neighbour[1] for neighbour in neighbours]
-    count = Counter(classes)
-    return count.most_common()[0][0] 
+    classes = []
+    for neighbour in neighbours:
+        classes.append(neighbour[1])
+    class_dic = {0:0,1:0}
+
+    for c in classes:
+        class_dic[c] = class_dic[c] + 1
+
+    if class_dic[0] > class_dic[1]:
+        return 0
+    else:
+        return 1
  
 def euclidean_distance(trainIns, testIns):
     data1 = trainIns[0]
     data2 = testIns
     two_points_zip = zip(data1, data2)
-    difference_square = [pow(a - b, 2) for (a, b) in two_points_zip]
-    sum_result = math.sqrt(sum(difference_square))
-    return (trainIns, sum_result)
+
+    difference_square = []
+    for (a,b) in two_points_zip:
+        difference_square.append(pow(a - b, 2))
+
+    res = math.sqrt(sum(difference_square))
+    return (trainIns, res)
  
 def main():
 
@@ -62,8 +76,7 @@ def main():
     prediction = []
  
     k = 5
-
- 
+    
     for x in range(len(test_data)):
             print 'Classifying test instance number ' + str(x) + ":",
             res = myKNN(train, test[x][0], 5)
