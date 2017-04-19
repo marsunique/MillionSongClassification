@@ -5,6 +5,7 @@ from operator import itemgetter
 import numpy as np
 import math
 from collections import Counter
+from sklearn import preprocessing
  
 # 1) given two data points, calculate the euclidean distance between them
 def get_distance(data1, data2):
@@ -39,8 +40,12 @@ def main():
     # random_state = 1 is just a seed to permit reproducibility of the train/test split
     iris = load_iris()
     X_train, X_test, y_train, y_test = cross_validation.train_test_split(iris.data, iris.target, test_size=0.4, random_state=1)
+    X_train = preprocessing.scale(X_train)
+    X_test = preprocessing.scale(X_test)
+
+    print(type(y_train))
  
-    # reformat train/test datasets for convenience
+    '''# reformat train/test datasets for convenience
     train = np.array(zip(X_train,y_train))
     test = np.array(zip(X_test, y_test))
  
@@ -62,7 +67,7 @@ def main():
     # summarize performance of the classification
     print '\nThe overall accuracy of the model is: ' + str(accuracy_score(y_test, predictions)) + "\n"
     report = classification_report(y_test, predictions, target_names = iris.target_names)
-    print 'A detailed classification report: \n\n' + report
+    print 'A detailed classification report: \n\n' + report'''
  
 if __name__ == "__main__":
     main()
