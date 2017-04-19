@@ -28,40 +28,27 @@ def load_data(fileName):
     my_data = zero_one_scaler.fit_transform(my_data)
     return my_data
  
-# 1) given two data points, calculate the euclidean distance between them
-def calculate_Distance(data1, data2):
-    points = zip(data1, data2)
-    diffs_squared_distance = [pow(a - b, 2) for (a, b) in points]
-    return math.sqrt(sum(diffs_squared_distance))
- 
-# 2) given a training set and a test instance, use getDistance to calculate all pairwise distances
-def calculate_neighbours(training_set, test_instance, k):
-    distances = [_get_tuple_distance(training_instance, test_instance) for training_instance in training_set]
-    # index 1 is the calculated distance between training_instance and test_instance
+def myKNN(trainSet, testIns, k):
+    distances = [euclidean_distance(trainIns, testIns) for trainIns in trainSet]
+    # index 1 is the calculated distance between trainIns and testIns
     sorted_distances = sorted(distances, key=itemgetter(1))
     # extract only training instances
-    sorted_training_instances = [tuple[0] for tuple in sorted_distances]
+    sorted_training_instances = [t[0] for t in sorted_distances]
     # select first k elements
-    return sorted_training_instances[:k]
- 
-def _get_tuple_distance(training_instance, test_instance):
-    data1 = training_instance[0]
-    data2 = test_instance
-
-    points = zip(data1, data2)
-    diffs_squared_distance = [pow(a - b, 2) for (a, b) in points]
-    sum_result = math.sqrt(sum(diffs_squared_distance))
-    return (training_instance, sum_result)
-    #return (training_instance, calculate_Distance(test_instance, training_instance[0]))
- 
-# 3) given an array of nearest neighbours for a test case, tally up their classes to vote on test case class
-def get_majority_vote(neighbours):
-    # index 1 is the class
+    neighbours = sorted_training_instances[:k]
+    #majority vote
     classes = [neighbour[1] for neighbour in neighbours]
     count = Counter(classes)
     return count.most_common()[0][0] 
  
-# setting up main executable method
+def euclidean_distance(trainIns, testIns):
+    data1 = trainIns[0]
+    data2 = testIns
+    two_points_zip = zip(data1, data2)
+    difference_square = [pow(a - b, 2) for (a, b) in two_points_zip]
+    sum_result = math.sqrt(sum(difference_square))
+    return (trainIns, sum_result)
+ 
 def main():
 
     trian_data = load_data("train_sample.csv")
@@ -74,22 +61,16 @@ def main():
 
     print("Finish loading data")
  
-    # generate predictions
     predictions = []
  
-    # let's arbitrarily set k equal to 5, meaning that to predict the class of new instances,
     k = 5
  
-    # for each instance in the test set, get nearest neighbours and majority vote on predicted class
     for x in range(len(test_data)):
- 
             print 'Classifying test instance number ' + str(x) + ":",
-            neighbours = calculate_neighbours(training_set=train, test_instance=test[x][0], k=5)
-            majority_vote = get_majority_vote(neighbours)
-            predictions.append(majority_vote)
-            print 'Predicted label=' + str(majority_vote) + ', Actual label=' + str(test[x][1])
+            res = myKNN(trainSet=train, testIns=test[x][0], k=5)
+            predictions.append(res)
+            print 'Predicted label=' + str(res) + ', Actual label=' + str(test[x][1])
  
-    # summarize performance of the classification
     print '\nThe overall accuracy of the model is: ' + str(accuracy_score(test_label, predictions)) + "\n"
     report = classification_report(test_label, predictions, target_names = iris.target_names)
     print 'A detailed classification report: \n\n' + report
