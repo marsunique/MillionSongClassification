@@ -89,6 +89,10 @@ def main():
     countMatch = 0.0
     countYes = 0.0
     totalYes = 0.0
+    yes_yes = 0
+    yes_no = 0
+    no_yes = 0
+    no_no = 0
 
     for i in range(0, testNum):    
         if trueTestLabel[i] == 1:
@@ -97,6 +101,14 @@ def main():
             countMatch += 1
             if prediction[i] == 1:
                 countYes += 1
+                yes_yes += 1
+            else:
+                no_no += 1
+        else:
+            if trueTestLabel[i] == 1:
+                yes_no += 1
+            else:
+                no_yes += 1
 
     print("* Total match = ", countMatch)
     print("* Total yes = ", totalYes)
@@ -105,6 +117,11 @@ def main():
     print("* Total Accuracy = ", countMatch/testNum)
     print("* Yes Accuracy = ", countYes/totalYes)
 
- 
+    print("yes_yes is ", yes_yes)
+    print("yes_no is ", yes_no)
+    print("no_yes is ", no_yes)
+    print("no_no is ", no_no)
+
+
 if __name__ == "__main__":
     main()
