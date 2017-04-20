@@ -1,6 +1,12 @@
 #-*- coding: utf-8 -*-
+import time
+
 class NaiveBayes(object):
     def __init__(self, train_data):
+        # timestamp
+        self.train_start_time = 0
+        self.train_end_time = 0
+        # training data
         self.train_data_path = train_data
         self.train_data_yes = []
         self.train_data_no = []
@@ -592,14 +598,19 @@ class NaiveBayes(object):
 
 
     def main(self):
+        self.train_start_time = time.time()
         self.readData()
         self.attProbYes()
         self.attProbNo()
-
+        self.train_end_time = time.time()
 
 
 class Predict(object):
     def __init__(self, nb_model, test_data):
+        # timestamp
+        self.pred_start_time = 0
+        self.pred_end_time = 0
+        # class variables
         self.model = nb_model
         self.test_data_path = test_data
         self.result_label = []
@@ -967,24 +978,26 @@ class Predict(object):
         print 'yes:', self.yes_yes_count + self.no_yes_count
         print 'no:', self.yes_no_count + self.no_no_count
         print '\nContingency Table\n'
-        print '---------------------------------------------------'
-        print '|   ori\\pred   |       yes       |       no       |'
-        print '---------------------------------------------------'
-        print '|      yes     |   %f    |   %f   |' % (self.yes_yes_count, self.yes_no_count)
-        print '---------------------------------------------------'
-        print '|      no      |   %f    |  %f  |' % (self.no_yes_count, self.no_no_count)
-        print '---------------------------------------------------'
+        print '----------------------------------------------------'
+        print '|   ori\\pred   |       yes       |       no        |'
+        print '----------------------------------------------------'
+        print '|      yes     |       %d       |       %d       |' % (self.yes_yes_count, self.yes_no_count)
+        print '----------------------------------------------------'
+        print '|      no      |       %d       |      %d      |' % (self.no_yes_count, self.no_no_count)
+        print '----------------------------------------------------'
 
         print 'Overall Accuracy:', (self.yes_yes_count + self.no_no_count) / float(self.total_row)
         print 'Accuracy for \'yes\' Class (Precision):', float(self.yes_yes_count) / (self.yes_yes_count + self.no_yes_count)
         print 'Accuracy for \'no\' Class:', float(self.no_no_count) / (self.no_no_count + self.yes_no_count)
         print 'Recall:', float(self.yes_yes_count) / (self.yes_yes_count + self.yes_no_count)
         print 'Specificity:', float(self.no_no_count) / (self.no_no_count + self.no_yes_count)
-
+        print 'F-measure:', float(2 * self.yes_yes_count) / (2 * self.yes_yes_count + self.yes_no_count + self.no_yes_count)
 
     def run(self):
         print '\nFollowing is the prediction result\n'
+        self.pred_start_time = time.time()
         self.predict()
+        self.pred_end_time = time.time()
         self.analyze()
 
 
@@ -992,4 +1005,6 @@ if __name__ == '__main__':
     nb_model = NaiveBayes('train_sample.csv')
     pred = Predict(nb_model, 'test_sample.csv')
     pred.run()
+    print '\nTraining Time:', nb_model.train_end_time - nb_model.train_start_time
+    print 'Prediction Time:', pred.pred_end_time - pred.pred_start_time
 
