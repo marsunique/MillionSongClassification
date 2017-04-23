@@ -40,7 +40,7 @@ y = df2["Target"]
 X = df2[features]
 
 start = time.time()
-dt = DecisionTreeClassifier(min_samples_split=20, random_state=99)
+dt = DecisionTreeClassifier(min_samples_split=20, random_state=99, max_depth = 36)
 
 dt.fit(X, y)
 
