@@ -21,26 +21,25 @@ def get_test_data():
 
 df_test = get_test_data()
 
-def encode_target(df, target_column):
-    df_mod = df.copy()
-    targets = df_mod[target_column].unique()
-    map_to_int = {name: n for n, name in enumerate(targets)}
-    df_mod["Target"] = df_mod[target_column].replace(map_to_int)
+def reformat(data, classLabel):
+    data2 = data.copy()
+    uniqueLabel = data2[classLabel].unique()
+    labelDigitalValue = {name: n for n, name in enumerate(uniqueLabel)}
+    data2["Target"] = data2[classLabel].replace(labelDigitalValue)
+    return data2
 
-    return (df_mod, targets)
-
-dfTest2, targetTest = encode_target(df_test, "top100")
+dfTest2, targetTest = reformat(df_test, "top100")
 df_test_data = df_test[list(dfTest2.columns[:14])]
 actualTestLabel = dfTest2["Target"]
 
-df2, targets = encode_target(df_train, "top100")
+df2 = reformat(df_train, "top100")
 features = list(df2.columns[:14])
 
 y = df2["Target"]
 X = df2[features]
 
 start = time.time()
-dt = DecisionTreeClassifier(min_samples_split=20, random_state=99, max_depth = 36)
+dt = DecisionTreeClassifier(max_depth = 36)
 
 dt.fit(X, y)
 
