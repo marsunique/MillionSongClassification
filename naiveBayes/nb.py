@@ -82,7 +82,86 @@ def undersampling(biased, answers, times=1):
       for k in range(len(second)*(times-1)):
             tmp.append(tmp1[k+len(second)])
             ans.append(answers[first[k+len(second)]])
-      return tmp, ans         
+      return tmp, ans    
+
+def outlierDetection(fpath, d, splits=10):
+      kf = KFold(n_splits=splits, shuffle=True)
+      XX, yy = readInput(fpath+d+".txt")
+      #results = {'training':[], 'testing':[]}
+      results = {'tp':0, 'fp':0, 'tn':0, 'fn':0}
+      totesFeatures = []
+      totesClasses = []
+
+      for train_index, test_index in kf.split(XX):
+            print("start")
+            training, tests = [XX[i] for i in train_index], [XX[j] for j in test_index]
+            classes, actuals = [yy[i] for i in train_index], [yy[j] for j in test_index]
+
+            # Random Forest
+            #isoFor = IsolationForest()
+            #isoFor.fit(training)
+            #isoForOut = isoFor.predict(training if testing is None else testing)
+            #isoForOut = isoFor.predict(training)
+            #isoForTest = isoFor.predict(tests)
+            start_time = timeit.default_timer()
+
+            ocs = OneClassSVM()
+            ocs.fit(training)
+            elapsed = timeit.default_timer() - start_time
+            print('classification time' + str(elapsed))
+            # #ocsOut = ocs.predict(training if testing is None else testing)
+            start_time = timeit.default_timer()
+            ocsOut = ocs.predict(tests)
+            elapsed = timeit.default_timer() - start_time
+            print('prediction time' + str(elapsed))
+            print("done classifying")
+
+
+            #one = [i for i,x in enumerate(isoForOut) if x == -1]
+
+            normal = [i for i,x in enumerate(ocsOut) if x == 1]
+            outlier = [i for i,x in enumerate(ocsOut) if x == -1]
+            print("Normal " + str(len(normal)))
+            print("Outlier " + str(len(outlier)))
+
+            # oneTest = [i for i,x in enumerate(ocsTest) if x == 1]
+            # twoTest = [i for i,x in enumerate(ocsTest) if x == -1]
+
+
+            #one = [i for i,x in enumerate(ocsOut) if x == 1]
+            #two = [i for i,x in enumerate(ocsOut) if x == -1]
+            #totesFeatures.extend([XX[i] for i in two])
+            #totesClasses.extend(yy[i] for i in two)
+
+            for t in range(len(ocsOut)):
+                if 1 == actuals[t]:
+                      if ocsOut[t] == -1:
+                            results['tp'] += 1
+                      else:
+                            results['fn'] += 1
+                else:
+                      if ocsOut[t] != -1:
+                            results['tn'] += 1
+                      else:
+                            results['fp'] += 1
+                            #{'fp': 258440, 'tn': 0, 'fn': 0, 'tp': 1882}
+            #oneTest = [i for i,x in enumerate(isoForTest) if x == 1]
+            #twoTest = [i for i,x in enumerate(isoForTest) if x == -1]
+
+
+            #three = [i for i in one if i in two]
+            #print(avg([1 if classes[i] > 0.5 else 0 for i in one]),len([1 if classes[i] > 0.5 else 0 for i in one]))
+            #ones = sum([1 if classes[i] <= 0.5 else 0 for i in one])
+            #twos = sum([1 if classes[i] > 0.5 else 0 for i in two])
+            #total = len(one) + len(two)
+            #results['training'].append([((ones + twos + 0.0)/total), ones, twos, total])
+
+            #onesTest = sum([1 if actuals[i] <= 0.5 else 0 for i in oneTest])
+            #twosTest = sum([1 if actuals[i] > 0.5 else 0 for i in twoTest])
+            #totalTest = len(oneTest) + len(twoTest)
+            #results['testing'].append([(onesTest + twosTest + 0.0)/totalTest, onesTest, twosTest, totalTest])
+            print(results)
+            exit()
     
 fpath = './musicFiles/'
 file = 'millionSongString'
