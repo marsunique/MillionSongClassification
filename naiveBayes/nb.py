@@ -1,5 +1,4 @@
 from sklearn.svm import SVC
-from sklearn.ensemble import AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import KFold
 from sklearn.linear_model import LassoCV
@@ -15,9 +14,8 @@ def classificationBig(fpath, d, splits=5):
     lassocv = LassoCV()
     svm = SVC()
     nb = GaussianNB()
-    ada = AdaBoostClassifier()
     
-    methods = [svm, nb, ada, lassocv]
+    methods = [svm, nb, lassocv]
     results = {m.__class__.__name__:[] for m in methods}
     
     for train_index, test_index in kf.split(XX):
@@ -38,10 +36,6 @@ def classificationBig(fpath, d, splits=5):
         # Naive Bayes
         print("nb")
         nb.fit(training, classes)
-        
-        # AdaBoost
-        print("ada")
-        ada.fit(training, classes)
         
         for m in methods:
             tmp = {'tp':0, 'tn':0, 'fp':0, 'fn':0}
@@ -69,30 +63,26 @@ def classificationBig(fpath, d, splits=5):
         print("\n")
 
 
-def undersampling(biased, answers):
-    """
-    Ghetto-fied version of basic undersampling.  Randomly samples data so that
-    over- and under-represented classes have the same number.  
-    Could rewrite this more python-y for style or
-    add to the second loop to take more of the over-represented class if as-is 
-    gives poor results.
-    """
-    tmp, tmp1, tmp2, first, second, ans = [], [], [], [], [], []
-    for k in range(len(biased)):
-        if answers[k] == 0:
-            tmp1.append(biased[k])
-            first.append(k)
-        else:
-            tmp2.append(biased[k])
-            second.append(k)
-    shuffle(tmp1)
-    shuffle(tmp2)
-    for k in range(len(min(first, second))):
-        tmp.append(tmp1[k])
-        ans.append(answers[first[k]]))
-        tmp.append(tmp2[k])
-        ans.append(answers[second[k]])
-    return tmp, ans            
+def undersampling(biased, answers, times=1):
+      tmp, tmp1, tmp2, first, second, ans = [], [], [], [], [], []
+      for k in range(len(biased)):
+            if answers[k] == 0:
+                  tmp1.append(biased[k])
+                  first.append(k)
+            else:
+                  tmp2.append(biased[k])
+                  second.append(k)
+      shuffle(tmp1)
+      shuffle(tmp2)
+      for k in range(len(second)):
+            tmp.append(tmp1[k])
+            ans.append(answers[first[k]])
+            tmp.append(tmp2[k])
+            ans.append(answers[second[k]])
+      for k in range(len(second)*(times-1)):
+            tmp.append(tmp1[k+len(second)])
+            ans.append(answers[first[k+len(second)]])
+      return tmp, ans         
     
 fpath = './musicFiles/'
 file = 'millionSongString'
