@@ -1,8 +1,11 @@
 # CSC_522
 
-PROJECT: ALGO-RHYTHM
+PROJECT: ALGO-RHYTHM, Million Song Classification
 
-Team Name: Skinny White Godzillas, Thick Grunting Diggers, Unemployed Wheelers, Old Driver
+Team Member: Yuchen Sun, Dustin Lambright, Guanxu Yu, Andrew Hill, Fuxing Luan, Marc Quaintance
+
+Google Drive Link For Data:
+* https://drive.google.com/drive/folders/0B0UQJ5SM5N6geUoyQ3RxOHF4UEk?usp=sharing
 
 Overview
 Language(s) we are using 
@@ -10,6 +13,7 @@ We will be using Java and Python
 Data set we are using
 * http://labrosa.ee.columbia.edu/millionsong/
 * http://labrosa.ee.columbia.edu/millionsong/pages/field-list
+Reference
 * http://cs229.stanford.edu/proj2014/Angela%20Xue,%20Nick%20Dupoux,%20Predicting%20the%20Commercial%20Success%20of%20Songs%20Based%20on%20Lyrics%20and%20Other%20Metrics.pdf
 * https://www.cs.purdue.edu/homes/moore269/docs/music.pdf
 * https://prezi.com/emacbgyfpexz/music-hotness-prediction/
