@@ -4,7 +4,7 @@ from sklearn.model_selection import KFold
 from sklearn.linear_model import LassoCV
 from random import shuffle
 
-def classificationBig(fpath, d, splits=5):
+def classificationBig(fpath, d, splits=5, times=1):
     """
     Basic classification with 5-fold cross-validation
     """
@@ -22,14 +22,14 @@ def classificationBig(fpath, d, splits=5):
         training, tests = [XX[i] for i in train_index], [XX[j] for j in test_index]
         classes, actuals = [yy[i] for i in train_index], [yy[j] for j in test_index]
 
-        training, classes = undersampling(training, classes)
+        training, classes = undersampling(training, classes, times)
 
         
         # LASSO Regression
         print("lasso")
         lassocv.fit(training, classes)
         
-        #Support Vector Machines
+        # Support Vector Machines
         print("svm")
         svm.fit(training, classes)
   
