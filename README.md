@@ -119,7 +119,9 @@ Marc - Uploading and formatting data into a mySQL database for easy use. Will us
 
 Yuchen - Worked together with Dustin on providing workable input data. Resolved the possible issue caused by the incompatible encoding setup. Will be looking for practicable solution for clustering problem (algorithms, attributes taken into account to do clustering) and how to interpret the clustering result. Also will be doing research on how to present the result (visualization).
 
+Fuxing - Will Generate hottness label in trainning data by using additional database (Billboard). Will use package "Party" in R to classify.
+
 Guanxu - Will implemente Gaussian discriminant model(GDA) classifier to predict the hottness of songs and compare the result come from other teamates' prediction. Will convert nominal attributes(artists, release) into numeric for easy use of classification.
 http://ai2-s2-pdfs.s3.amazonaws.com/4193/5a4701ff429b71fb94f77840ffb1258ce894.pdf
 
-Fuxing - Will Generate hottness label in trainning data by using additional database (Billboard).
+
