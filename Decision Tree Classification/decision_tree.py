@@ -12,23 +12,29 @@ import time
 
 def get_train_data():
     df = pd.read_csv("train_sample.csv", index_col=0)
+    df = df.drop("artist_name", 1)
+    df = df.drop("title", 1)
+    df = df.drop("release", 1)
+    df = df.drop("song_hottnesss", 1)
     return df
 
 df_train = get_train_data()
+
 def get_test_data():
-	df = pd.read_csv("test_sample.csv", index_col=0)
-	return df
-
+    df = pd.read_csv("test_sample.csv", index_col = 0)
+    df = df.drop("artist_name", 1)
+    df = df.drop("title", 1)
+    df = df.drop("release", 1)
+    df = df.drop("song_hottnesss", 1)
+    return df
 df_test = get_test_data()
-
 def reformat(data, classLabel):
     data2 = data.copy()
-    uniqueLabel = data2[classLabel].unique()
-    labelDigitalValue = {name: n for n, name in enumerate(uniqueLabel)}
+    labelDigitalValue = {'yes' : 1, 'no' : 0}
     data2["Target"] = data2[classLabel].replace(labelDigitalValue)
     return data2
 
-dfTest2, targetTest = reformat(df_test, "top100")
+dfTest2 = reformat(df_test, "top100")
 df_test_data = df_test[list(dfTest2.columns[:14])]
 actualTestLabel = dfTest2["Target"]
 
@@ -60,9 +66,9 @@ no_no = 0
 trueTestLabel = []
 for i in range(0, testNum):
 	if actualTestLabel[i] == 0:
-		trueTestLabel.append(1)
-	else:
 		trueTestLabel.append(0)
+	else:
+		trueTestLabel.append(1)
 
 for i in range(0, testNum):    
     if trueTestLabel[i] == 1:
@@ -80,12 +86,12 @@ for i in range(0, testNum):
         else:
             no_yes += 1
 
-print("* Total match = ", countMatch, sep="\n", end="\n\n")
-print("* Total yes = ", totalYes, sep="\n", end="\n\n")
-print("* Total count yes = ", countYes, sep="\n", end="\n\n")
+print("Total match = ", countMatch)
+print("Total yes = ", totalYes)
+print("Total count yes = ", countYes)
 
-print("* Total Accuracy = ", countMatch/testNum, sep="\n", end="\n\n")
-print("* Yes Accuracy = ", countYes/totalYes, sep="\n", end="\n\n")
+print("Total Accuracy = ", countMatch/testNum)
+print("Yes Accuracy = ", countYes/totalYes)
 
 
 print("yes_yes is ", yes_yes)

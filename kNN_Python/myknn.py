@@ -28,9 +28,7 @@ def myKNN(trainSet, testIns, k):
     distance = []
     for train_data in trainSet:
         distance.append(euclidean_distance(train_data, testIns))
-
     sorted_distances = sorted(distance, key=itemgetter(1))
-    
     sorted_train_data = []
     for t in sorted_distances:
         sorted_train_data.append(t[0])
@@ -52,12 +50,12 @@ def myKNN(trainSet, testIns, k):
 def euclidean_distance(trainIns, testIns):
     data1 = trainIns[0]
     data2 = testIns
-    two_points_zip = zip(data1, data2)
+    vectorLength = len(data1)
 
     difference_square = []
-    for (a,b) in two_points_zip:
-        difference_square.append(pow(a - b, 2))
-
+    for i in range(vectorLength):
+        aMinusbSquare = pow(data1[i] - data2[i], 2)
+        difference_square.append(aMinusbSquare)
     res = math.sqrt(sum(difference_square))
     return (trainIns, res)
  

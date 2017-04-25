@@ -128,7 +128,6 @@ Yuchen - Worked together with Dustin on providing workable input data. Resolved 
 
 Fuxing - Will Generate hottness label in trainning data by using additional database (Billboard). Will use package "Party" in R to classify.
 
-Guanxu - Will implemente Gaussian discriminant model(GDA) classifier to predict the hottness of songs and compare the result come from other teamates' prediction. Will convert nominal attributes(artists, release) into numeric for easy use of classification.
-http://ai2-s2-pdfs.s3.amazonaws.com/4193/5a4701ff429b71fb94f77840ffb1258ce894.pdf
+Guanxu - Will implemente decision tree classifier to predict the hottness of songs and compare the result come from other teamates' prediction. Will split total data into training data set and test data set.
 
 
