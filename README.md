@@ -18,7 +18,10 @@ The data this model use are the `train_sample.csv` and `test_sample.csv` under t
 
 To run the code, go to folder `/Decision Tree Classification/` in the repository. The traning data and test data are already there. 
 
-Run command `python decision_tree.py`. Classification result will show up after the runninig.
+Run command `python decision_tree.py`. Classification result will show up after the running.
+
+### kNN_R
+The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
 
 ## Overview
 
