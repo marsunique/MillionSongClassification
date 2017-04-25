@@ -13,7 +13,8 @@ To run the code, go to folder `/naive_bayes_no_lib/` in the repository. The tran
 
 Run command `python naive_bayes.py`. Classification result will show up after the runninig.
 
-Overview
+## Overview
+
 Language(s) we are using 
 We will be using Python mostly.
 Data set we are using
