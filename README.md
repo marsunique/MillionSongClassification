@@ -2,15 +2,24 @@
 
 Team Member: Yuchen Sun, Dustin Lambright, Guanxu Yu, Andrew Hill, Fuxing Luan, Marc Quaintance
 
-Google Drive Link For Data:
-* https://drive.google.com/drive/folders/0B0UQJ5SM5N6geUoyQ3RxOHF4UEk?usp=sharing
+## Google Drive Link For Data:
+https://drive.google.com/drive/folders/0B0UQJ5SM5N6geUoyQ3RxOHF4UEk?usp=sharing
+
+## Instruction
+### Naive Bayes (without library)
+The data this model use are the `train_sample.csv` and `test_sample.csv` under the [`Data(Algorithm-Million Song Classification/Training and Test Data/`](https://drive.google.com/open?id=0B0UQJ5SM5N6gZ1lSaWxTODE5Y0E) directory on our Google drive . 
+
+To run the code, go to folder `/naive_bayes_no_lib/` in the repository. The traning data and test data are already there. 
+
+Run command `python naive_bayes.py`. Classification result will show up after the runninig.
 
 Overview
 Language(s) we are using 
-We will be using Java and Python
+We will be using Python mostly.
 Data set we are using
 * http://labrosa.ee.columbia.edu/millionsong/
 * http://labrosa.ee.columbia.edu/millionsong/pages/field-list
+* http://www.billboard.com/charts/hot-100
 
 References
 * http://cs229.stanford.edu/proj2014/Angela%20Xue,%20Nick%20Dupoux,%20Predicting%20the%20Commercial%20Success%20of%20Songs%20Based%20on%20Lyrics%20and%20Other%20Metrics.pdf
