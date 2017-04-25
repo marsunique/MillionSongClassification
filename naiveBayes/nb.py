@@ -14,6 +14,8 @@ def readInput(file):
       OUTPUT:   t1 - list containing features
                 t2 - list containing class labels which correspond to respective features lists in t1
       """
+      #scriptDir = os.path.dirname(__file__)
+      #with open(os.path.join(scriptDir, file), 'r') as temp_file:
       with open(file) as temp_file:
             temp_file.readline()
             data = []
