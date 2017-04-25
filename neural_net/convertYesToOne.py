@@ -4,14 +4,14 @@ totalCount = 0
 successfulCount = 0
 unsuccessfulCount = 0
 
-successfulOut = open("millionSongsAltered.csv", "w")
+successfulOut = open("test_sample_II.csv", "w")
 totalCount = 0
-with open("millionSongs_labeled.csv", "r+") as inFile:
+with open("test_sample.csv", "r+") as inFile:
     
     for line in inFile:
         
         totalCount = totalCount + 1
-        line = line.replace(",,,,,,,,,,,", "")
+        line = line.replace(",,", "")
         splitLine = line.split(",")
         #print line
         #print splitLine
