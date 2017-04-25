@@ -29,8 +29,7 @@ Because regression predicts on continuous variables, it is necessary to use a di
   
   <b> NOTE </b> - Outlier detection takes a VERY long time.  It is recommended that the technique is tested on a small subset of the data (you can pass "testing=True" as a parameter) and/or commented out once it has been verified so as not to cause all other tests to take forever.
   
-  
-
 NB - Ensure that these files are in the same folder as the python file.  This code was run in Cloud9 on Ubuntu virtual machines.  If run in OSX it may require different file naming conventions.
 Code which should address this is commented out in the readInput method.
 
+NB - The outlier detection (One-Class SVM) works much better on the millionSongs3 than on millionSongString.  
