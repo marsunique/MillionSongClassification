@@ -1,0 +1,1 @@
+The data this model use are the `train_sample.csv`, `train_sample_label.csv`,`test_sample.csv` and `test_sample_label.csv` under the [`Data(Algorithm-Million Song Classification/kNN(Python)/`](https://drive.google.com/drive/u/0/folders/0B57cOdEib9CHenZnN1BwWlVWNDA) directory on our Google drive . 
