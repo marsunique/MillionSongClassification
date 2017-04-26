@@ -29,16 +29,13 @@ class trainer(object):
         params0 = self.N.getParams()
         
         
-        # Adrian, this method below is the one that I had to comment out due to the compiler error.  The only chance that this algorithm has of
-        # working lies in making this method work, I feel
         
-        '''
-        #options = {'maxiter': 200, 'disp' : True}
-        #_res = optimize.minimize(self.costFunctionWrapper, params0, jac = True, method='BFGS', args = (trainX,trainY), options=options, callback=self.callbackF)
-        #print _res
-        #self.N.setParams(_res.x)
-        #self.optimizationResults = _res
-        '''
+        options = {'maxiter': 200, 'disp' : True}
+        _res = optimize.minimize(self.costFunctionWrapper, params0, jac = True, method='BFGS', args = (trainX,trainY), options=options, callback=self.callbackF)
+        print _res
+        self.N.setParams(_res.x)
+        self.optimizationResults = _res
+        
 
     '''
     def train(self, trainX, trainY):
