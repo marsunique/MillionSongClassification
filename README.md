@@ -43,6 +43,9 @@ You need to open file 'party_decision_tree.r' and set the working directory to w
 ### kNN_R
 The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
 
+-### kNN_Python
+ -The data this model use are the `train_sample.csv`, `train_sample_label.csv`,`test_sample.csv` and `test_sample_label.csv` under the [`Data(Algorithm-Million Song Classification/kNN(Python)/`](https://drive.google.com/drive/u/0/folders/0B57cOdEib9CHenZnN1BwWlVWNDA) directory on our Google drive . 
+
 ## Overview
 
 Language(s) we are using 
