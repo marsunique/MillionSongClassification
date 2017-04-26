@@ -14,21 +14,25 @@ To run the code, go to folder `/naive_bayes_no_lib/` in the repository. The tran
 Run command `python naive_bayes.py`. Classification result will show up after the runninig.
 
 ### Decision Tree
+Python part:
+
 The data this model use are the `train_sample.csv` and `test_sample.csv` under the [`Data(Algorithm-Million Song Classification/Training and Test Data/`](https://drive.google.com/open?id=0B0UQJ5SM5N6gZ1lSaWxTODE5Y0E) directory on our Google drive . 
 
 To run the code, go to folder `/Decision Tree Classification/` in the repository. The traning data and test data are already there. 
 
 Run command `python decision_tree.py`. Classification result will show up after the running.
 
+R part:
+
+Also, The data this model use are the `train_sample.csv` and `test_sample.csv` under the [`Data(Algorithm-Million Song Classification/Training and Test Data/`](https://drive.google.com/open?id=0B0UQJ5SM5N6gZ1lSaWxTODE5Y0E) directory on our Google drive . 
+
+To run the code, go to folder `/Decision Tree Classification/` in the repository. The traning data and test data are already there. 
+
+You need to open file 'party_decision_tree.r' and set the working directory to where it contains the training and testing dataset, after running all the code, the results (precision, recall and fmessure) for three different cases will show on the command lines.
+
+
 ### kNN_R
 The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
-
-### kNN_Python
-The data this model use are the `train_sample.csv`, `train_sample_label.csv`,`test_sample.csv` and `test_sample_label.csv` under the [`Data(Algorithm-Million Song Classification/kNN(Python)/`](https://drive.google.com/drive/u/0/folders/0B57cOdEib9CHenZnN1BwWlVWNDA) directory on our Google drive . 
-
-To run the code, go to folder `/kNN_Python/` in the repository. The traning data and test data are already there. 
-
-Run command `python mykNN.py`. Classification result will show up after the running.
 
 ## Overview
 
