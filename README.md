@@ -14,11 +14,7 @@ Algo-Rhythm is a collection of algorithms aimed at classifying a song as a succe
 ## Algorithms Implemented:
 
 ### Naive Bayes (without library)
-The data this model use are the `train_sample.csv` and `test_sample.csv` under the [`Data(Algorithm-Million Song Classification/Training and Test Data/`](https://drive.google.com/open?id=0B0UQJ5SM5N6gZ1lSaWxTODE5Y0E) directory on our Google drive . 
-
-To run the code, go to folder `/naive_bayes_no_lib/` in the repository. The traning data and test data are already there. 
-
-Run command `python naive_bayes.py`. Classification result will show up after the runninig.
+XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naive_bayes_no_lib)
 
 ### Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods
 XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
