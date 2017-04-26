@@ -13,27 +13,22 @@ Algo-Rhythm is a collection of algorithms aimed at classifying a song as a succe
 
 ## Algorithms Implemented:
 
-### Naive Bayes (without library)
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naive_bayes_no_lib)
+### [`Naive Bayes (without library)`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/naiveBayes)
 
-### Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods
+### Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods <- Can't find andrew's folder??????
 XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
 
-### Neural Network
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/neural_net)
+### [`Decision Tree`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Decision%20Tree%20Classification)
+
+### [`kNN in R`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/kNN_R)
+The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
+
+### [`kNN in Python`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/KNN)
+
+### [`Neural Network`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/neural_net)
 
 ### Song data parsing & feature selection
 XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Preprocessing)
-
-### Decision Tree
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Decision%20Tree%20Classification)
-
-
-### kNN_R
-The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
-
-### kNN_Python
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Decision%20Tree%20Classification)
 
 
 ## CURRENT CSV FILE ITEMS ##
