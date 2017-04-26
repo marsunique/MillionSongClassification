@@ -13,6 +13,15 @@ To run the code, go to folder `/naive_bayes_no_lib/` in the repository. The tran
 
 Run command `python naive_bayes.py`. Classification result will show up after the runninig.
 
+### Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods
+XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+
+### Neural Network
+XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+
+### Song data parsing & feature selection
+XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+
 ### Decision Tree
 Python part:
 
