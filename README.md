@@ -17,10 +17,10 @@ Run command `python naive_bayes.py`. Classification result will show up after th
 XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
 
 ### Neural Network
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/neural_net)
 
 ### Song data parsing & feature selection
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Preprocessing)
 
 ### Decision Tree
 XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Decision%20Tree%20Classification)
