@@ -6,7 +6,7 @@ This neural network is patterned after the neural network provided in the [`Welc
 For this project, I used one hidden layer with 15 nodes.  The output layer was a single node.  If this setup provided unsatisfying results, I would have used a round-robin approach, changing the hidden layer size and the alpha value to find an optimal setup.  
 
 ### Input Files
-Currently, the algorithm is looking at the test_data_III.csv and train_data_III.csv to train the network.  I had to iterate on the same data three times to prune the values exactly as the numpy arrays dictate.  There is no leeway in this regard.  It had to be perfect.
+Currently, the algorithm is looking at the test_sample_III.csv and train_sample_III.csv to train the network.  I had to iterate on the same data three times to prune the values exactly as the numpy arrays dictate.  There is no leeway in this regard.  It had to be perfect.
 
 ### Issues in Implementation
 There is a critical part of the trainer method that calls the scipy.optimize method.  When the trainer runs, it attempts to call this method, but returns an error based on the internals of numpy and scipy.  I spent a non-trivial amount of time looking into the root cause of this issue, then decided that my efforts were better used elsewhere in the group project
