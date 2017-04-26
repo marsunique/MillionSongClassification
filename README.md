@@ -21,14 +21,13 @@ Algo-Rhythm is a collection of algorithms aimed at classifying a song as a succe
 
 ### [`kNN in R`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/kNN_R)
 
-### [`kNN in Python`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/KNN)
+### [`kNN in Python`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/kNN_Python)
 
 ### [`Neural Network`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/neural_net)
 
 ### [`Song Data Parsing & Feature Selection`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/song_extraction)
 
 ### [`Preprocessing`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Preprocessing)
-# ^Yuchen let me know if you want this link here - Dustin
 
 ## SAMPLE DATA USED IN OUR ALGORITHMS ##
 
