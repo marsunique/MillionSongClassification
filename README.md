@@ -8,35 +8,28 @@ https://drive.google.com/drive/folders/0B0UQJ5SM5N6geUoyQ3RxOHF4UEk?usp=sharing
 ## Overview
 Algo-Rhythm is a collection of algorithms aimed at classifying a song as a successful song (reached the Billboard top 100 chart) or not.  We collected data from the [`LABROSA Million song dataset`](https://labrosa.ee.columbia.edu/millionsong/) and combined the songs with a successful label based on a result of our gathering data from a histroy of the [`Billboard Top 100 Charts`](http://www.billboard.com/charts/hot-100).  Using this data, we created some algorithms from built-in libraries, and some algorithms built from scratch to classify any new songs as potentially successful or no.
 
-* XXXXXXXXXXXXX [`Poster`](https://labrosa.ee.columbia.edu/millionsong/)
+#### [`Poster`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/blob/master/Poster.pdf)
 * XXXXXXXXXXXXX [`Report`](https://reddit.com)
 
 ## Algorithms Implemented:
 
-### Naive Bayes (without library)
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naive_bayes_no_lib)
+### [`Naive Bayes (without library)`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/naive_bayes_no_lib)
 
-### Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+### [`Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/naiveBayes) 
 
-### Neural Network
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/neural_net)
+### [`Decision Tree`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Decision%20Tree%20Classification)
 
-### Song data parsing & feature selection
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Preprocessing)
+### [`kNN in R`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/kNN_R)
 
-### Decision Tree
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Decision%20Tree%20Classification)
+### [`kNN in Python`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/kNN_Python)
 
+### [`Neural Network`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/neural_net)
 
-### kNN_R
-The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
+### [`Song Data Parsing & Feature Selection`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/song_extraction)
 
-### kNN_Python
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Decision%20Tree%20Classification)
+### [`Preprocessing`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Preprocessing)
 
-
-## CURRENT CSV FILE ITEMS ##
+## SAMPLE DATA USED IN OUR ALGORITHMS ##
 
 | ID | TITLE | ARTIST NAME | RELEASE | YEAR | KEY | KEY CONFIDENCE | TIME SIGNATURE | TIME SIGNATURE CONFIDENCE | MODE | MODE CONFIDENCE | END OF FADE IN | START OF FADE OUT | ENERGY | DURATION |  DANCEABILITY | SONG HOTTNESS | TEMPO | LOUDNESS | TOP 100? | 
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |
