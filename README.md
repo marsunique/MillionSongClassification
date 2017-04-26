@@ -21,7 +21,6 @@ XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dla
 ### [`Decision Tree`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Decision%20Tree%20Classification)
 
 ### [`kNN in R`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/kNN_R)
-The data is in the kNN_R folder (`millionSongs(labeled)_noNaN.csv`). You must update the path on line 8 to represent the location of this file. Then run the entire file. It shouldn't complete the myKNN function because it has yet to complete on my computer after two weeks.
 
 ### [`kNN in Python`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/KNN)
 
