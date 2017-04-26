@@ -8,15 +8,14 @@ https://drive.google.com/drive/folders/0B0UQJ5SM5N6geUoyQ3RxOHF4UEk?usp=sharing
 ## Overview
 Algo-Rhythm is a collection of algorithms aimed at classifying a song as a successful song (reached the Billboard top 100 chart) or not.  We collected data from the [`LABROSA Million song dataset`](https://labrosa.ee.columbia.edu/millionsong/) and combined the songs with a successful label based on a result of our gathering data from a histroy of the [`Billboard Top 100 Charts`](http://www.billboard.com/charts/hot-100).  Using this data, we created some algorithms from built-in libraries, and some algorithms built from scratch to classify any new songs as potentially successful or no.
 
-* XXXXXXXXXXXXX [`Poster`](https://labrosa.ee.columbia.edu/millionsong/)
+#### [`Poster`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/blob/master/Poster.pdf)
 * XXXXXXXXXXXXX [`Report`](https://reddit.com)
 
 ## Algorithms Implemented:
 
-### [`Naive Bayes (without library)`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/naiveBayes)
+### [`Naive Bayes (without library)`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/naive_bayes_no_lib)
 
-### Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods <- Can't find andrew's folder??????
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/naiveBayes)
+### [`Naive bayes, Linear Regression with LASSO, SVM and Outlier Methods`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/naiveBayes) 
 
 ### [`Decision Tree`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Decision%20Tree%20Classification)
 
@@ -26,11 +25,12 @@ XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dla
 
 ### [`Neural Network`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/neural_net)
 
-### Song data parsing & feature selection
-XXXXXXXXXXXXXXXX For details, see [`the included readme`](https://github.com/dlambright/CSC_522/tree/master/Preprocessing)
+### [`Song Data Parsing & Feature Selection`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/song_extraction)
 
+### [`Preprocessing`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/tree/master/Preprocessing)
+# ^Yuchen let me know if you want this link here - Dustin
 
-## CURRENT CSV FILE ITEMS ##
+## SAMPLE DATA USED IN OUR ALGORITHMS ##
 
 | ID | TITLE | ARTIST NAME | RELEASE | YEAR | KEY | KEY CONFIDENCE | TIME SIGNATURE | TIME SIGNATURE CONFIDENCE | MODE | MODE CONFIDENCE | END OF FADE IN | START OF FADE OUT | ENERGY | DURATION |  DANCEABILITY | SONG HOTTNESS | TEMPO | LOUDNESS | TOP 100? | 
 | ------------- | ------------- | ------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |------------- |
