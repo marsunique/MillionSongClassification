@@ -9,7 +9,7 @@ https://drive.google.com/drive/folders/0B0UQJ5SM5N6geUoyQ3RxOHF4UEk?usp=sharing
 Algo-Rhythm is a collection of algorithms aimed at classifying a song as a successful song (reached the Billboard top 100 chart) or not.  We collected data from the [`LABROSA Million song dataset`](https://labrosa.ee.columbia.edu/millionsong/) and combined the songs with a successful label based on a result of our gathering data from a histroy of the [`Billboard Top 100 Charts`](http://www.billboard.com/charts/hot-100).  Using this data, we created some algorithms from built-in libraries, and some algorithms built from scratch to classify any new songs as potentially successful or no.
 
 #### [`Poster`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/blob/master/Poster.pdf)
-* XXXXXXXXXXXXX [`Report`](https://reddit.com)
+#### [`Report`](https://github.ncsu.edu/ysun34/CSC522_MillionSongClassification/blob/master/algo_rhythm_final.pdf)
 
 ## Algorithms Implemented:
 
